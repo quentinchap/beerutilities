@@ -1,6 +1,15 @@
+import {alcohoLevel} from './specificCalcul';
+import {galToLiter, galToOz} from './conversion/galTo';
+import {literToOz, literToGal, literToCl} from './conversion/literTo';
+import {ozToGal, ozToLiter} from './conversion/ozTo';
 
-import { alcohoLevel } from './specificCalcul';
-import * as Oz from './conversion/ozTo';
-import * as Gal from './conversion/galTo';
-
-export { alcohoLevel, Oz, Gal };
+export {
+  alcohoLevel,
+  galToOz,
+  galToLiter,
+  literToOz,
+  literToGal,
+  literToCl,
+  ozToGal,
+  ozToLiter,
+};
