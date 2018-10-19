@@ -1,15 +1,17 @@
 var webpack = require('webpack');
 var path = require('path');
 
-var BUILD_DIR = path.resolve(__dirname, 'build/');
+var BUILD_DIR = path.resolve(__dirname);
 
 var config = {
-  entry: path.resolve(__dirname, 'src/index.js'),
+  entry: {
+    index: path.resolve(__dirname, 'src/index.js'),
+  },
   output: {
     path: BUILD_DIR,
     filename: '[name].js',
     library: '[name].js',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   },
   externals: {},
   mode: 'production',
@@ -18,10 +20,10 @@ var config = {
       {
         test: /.(js|jsx)$/,
         exclude: /node_modules/,
-        use: 'babel-loader'
-      }
-    ]
-  }
+        use: 'babel-loader',
+      },
+    ],
+  },
 };
 
 module.exports = config;

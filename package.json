@@ -1,6 +1,6 @@
 {
-  "name": "BeerUtilities",
-  "version": "0.0.1",
+  "name": "beerutilities",
+  "version": "0.0.2",
   "description": "Tools to convert, calculate, ...",
   "main": "build/index.js",
   "scripts": {
