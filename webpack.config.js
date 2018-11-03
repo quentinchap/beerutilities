@@ -1,4 +1,3 @@
-var webpack = require('webpack');
 var path = require('path');
 
 var BUILD_DIR = path.resolve(__dirname);
@@ -12,6 +11,7 @@ var config = {
     filename: '[name].js',
     library: '[name].js',
     libraryTarget: 'umd',
+    globalObject: "(typeof window !== 'undefined' ? window : this)",
   },
   externals: {},
   mode: 'production',
