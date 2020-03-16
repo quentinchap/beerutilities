@@ -48,14 +48,6 @@ export const beerType = [
     },
   },
   {
-    name: 'Vienna',
-    carbonatation: {
-      min: 2.4,
-      max: 2.6,
-      default: 2.5,
-    },
-  },
-  {
     name: 'Lager EU',
     carbonatation: {
       min: 2.2,

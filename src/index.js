@@ -1,9 +1,10 @@
 import {getAlcohoLevel} from './brewerTool/alcoholLevel';
+import {getTheoricalDenity} from './brewerTool/theoricalDenity';
 import {galToLiter, galToOz} from './conversion/galTo';
 import {literToOz, literToGal, literToCl} from './conversion/literTo';
 import {ozToGal, ozToLiter} from './conversion/ozTo';
-import { getSugarToBottling } from './conditionningTools/bottling';
-import { beerType } from './referential/beerType';
+import {getSugarToBottling} from './conditionningTools/bottling';
+import {beerType} from './referential/beerType';
 
 export {
   getAlcohoLevel,
@@ -15,5 +16,6 @@ export {
   literToCl,
   ozToGal,
   ozToLiter,
-  beerType
+  beerType,
+  getTheoricalDenity,
 };
