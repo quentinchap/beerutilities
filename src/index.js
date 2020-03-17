@@ -5,6 +5,7 @@ import {literToOz, literToGal, literToCl} from './conversion/literTo';
 import {ozToGal, ozToLiter} from './conversion/ozTo';
 import {getSugarToBottling} from './conditionningTools/bottling';
 import {beerTypeCarbo} from './referential/beerTypeCarbo';
+import fermentables from './referential/fermentables';
 import {BCJP2015} from './referential/BCJP2015';
 
 export {
@@ -19,4 +20,5 @@ export {
   ozToLiter,
   beerTypeCarbo,
   getTheoricalDenity,
+  fermentables,
 };
