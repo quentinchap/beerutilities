@@ -5,6 +5,8 @@ var BUILD_DIR = path.resolve(__dirname);
 var config = {
   entry: {
     index: path.resolve(__dirname, 'src/index.js'),
+    beerType: path.resolve(__dirname, 'src/beerType.js'),
+    fermentables: path.resolve(__dirname, 'src/fermentables.js'),
   },
   output: {
     path: BUILD_DIR,

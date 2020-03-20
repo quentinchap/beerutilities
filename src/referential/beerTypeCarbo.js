@@ -1,4 +1,4 @@
-export const beerType = [
+const beerTypeCarbo = [
   {
     name: 'Ales Britanniques',
     carbonatation: {
@@ -224,3 +224,5 @@ export const beerType = [
     },
   },
 ];
+
+export default beerTypeCarbo;
