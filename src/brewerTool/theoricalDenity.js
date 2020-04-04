@@ -2,6 +2,7 @@ import math from './mathjs';
 
 export function getTheoricalDenity(rendement, volume, fermentables) {
   let E = 0;
+  console.log(rendement, volume, fermentables);
   fermentables.forEach(f => {
     let weight = 0;
     if (f.weight) {
@@ -20,6 +21,8 @@ export function getTheoricalDenity(rendement, volume, fermentables) {
         parseFloat(rendement)) /
       100;
   });
+
+  console.log(E, volume);
 
   let DI = 1 + (383 * E) / volume / 1000;
 
