@@ -49,6 +49,7 @@ const recipe = {
         _id: '5da1de901da13a0a61c5cfec',
         name: 'Pilsen 2RP ',
         notes: null,
+        yield: 82.61,
         addAfterBoil: false,
       },
       {
@@ -56,12 +57,16 @@ const recipe = {
         _id: '5da1de901da13a0a61c5cfeb',
         name: 'Cara Gold (BTB-CM)',
         notes: null,
+        yield: 82.61,
+
         addAfterBoil: false,
       },
       {
         amount: {unit: 'kg', value: 0.2},
         _id: '5da1de901da13a0a61c5cfea',
         name: 'Orge, flocons',
+        yield: 82.61,
+
         notes: null,
         addAfterBoil: false,
       },
