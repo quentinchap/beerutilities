@@ -1,7 +1,7 @@
 import {beerTypeCarbo} from '../beerType';
 
 import recipe from '../dataSet';
-import {getTheoricalDenity} from './theoricalDenity';
+import {getTheoricalDenity, getTheoricalDF} from './theoricalDenity';
 
 test('Simple OG', () => {
   expect(
@@ -53,4 +53,45 @@ test('Complex og', () => {
   expect(
     getTheoricalDenity(80.0, 20, recipe.ingredients.fermentables).di.value,
   ).toEqual(1.0373347634);
+});
+
+test('Simple fg', () => {
+  expect(
+    getTheoricalDF(1.05, [
+      {
+        amount: {value: 11.5, unit: 'g'},
+        productID: 'US-05',
+        laboratory: 'Fermentis',
+        name: 'SafAle',
+        from: 'Dry',
+        attenuation: '75',
+        tableData: {id: 0},
+      },
+    ]).df.value,
+  ).toEqual(1.0125);
+});
+
+test('Complex fg', () => {
+  expect(
+    getTheoricalDF(1.05, [
+      {
+        amount: {value: 11.5, unit: 'g'},
+        productID: 'US-05',
+        laboratory: 'Fermentis',
+        name: 'SafAle',
+        from: 'Dry',
+        attenuation: '75',
+        tableData: {id: 0},
+      },
+      {
+        amount: {value: 11.5, unit: 'g'},
+        productID: 'US-06',
+        laboratory: 'test',
+        name: 'test',
+        attenuation: '80',
+        from: 'Dry',
+        tableData: {id: 1},
+      },
+    ]).df.value,
+  ).toEqual(1.01125);
 });

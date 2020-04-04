@@ -1,10 +1,10 @@
 import {getAlcohoLevel} from './brewerTool/alcoholLevel';
-import {getTheoricalDenity} from './brewerTool/theoricalDenity';
+import {getTheoricalDenity, getTheoricalDF} from './brewerTool/theoricalDenity';
 import {galToLiter, galToOz} from './conversion/galTo';
 import {literToOz, literToGal, literToCl} from './conversion/literTo';
 import {ozToGal, ozToLiter} from './conversion/ozTo';
 import {getSugarToBottling} from './conditionningTools/bottling';
-import { calculateIbu } from './brewerTool/ibuCalculator';
+import {calculateIbu} from './brewerTool/ibuCalculator';
 
 export {
   getAlcohoLevel,
@@ -17,5 +17,6 @@ export {
   ozToGal,
   ozToLiter,
   getTheoricalDenity,
-  calculateIbu
+  getTheoricalDF,
+  calculateIbu,
 };
