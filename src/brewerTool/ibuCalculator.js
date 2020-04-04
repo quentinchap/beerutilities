@@ -38,7 +38,7 @@ export function calculateIbu(hops, gravity, volume) {
     let {w, duration, al} = convertHopParam(h);
     usage = 0;
     ibu = 0;
-    if ((h.use = 'First Wort')) {
+    if (h.use === 'First Wort') {
       duration = duration * 1.1;
     }
     if (h.use !== 'Dry Hop' && h.use !== 'Aroma') {
