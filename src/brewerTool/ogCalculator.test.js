@@ -55,6 +55,68 @@ test('Complex og', () => {
   ).toEqual(1.0373347634);
 });
 
+test('Bug MBF og', () => {
+  expect(
+    getTheoricalDenity(80, 22, [
+      {
+        id: 1,
+        name: 'Acid Malt',
+        ftype: 'Grain',
+        amount: {value: 5, unit: 'kg'},
+        yield: 58.7,
+        color: 3,
+        add_after_boil: false,
+        origin: 'Germany',
+        supplier: '',
+        notes: '',
+        coarse_fine_diff: 0,
+        moisture: 0,
+        diastatic_power: 0,
+        protein: 0,
+        max_in_batch: 10,
+        recommend_mash: true,
+        is_mashed: true,
+        ibu_gal_per_lb: 0,
+        display_unit: -1,
+        display_scale: -1,
+        deleted: 0,
+        display: 1,
+        folder: ');  2',
+        type: 'Grain',
+        tableData: {id: 0},
+      },
+      {
+        id: 5,
+        name: 'Barley',
+        ftype: 'Flaked',
+        amount: 'Grain',
+        yield: 0,
+        color: 70,
+        add_after_boil: 2,
+        origin: false,
+        supplier: 'US',
+        notes: '',
+        coarse_fine_diff:
+          'Adds proteins to promote hean retention and mouth feel. Commonly used Dry Stouts.',
+        moisture: 0,
+        diastatic_power: 0,
+        protein: 0,
+        max_in_batch: 0,
+        recommend_mash: 20,
+        is_mashed: true,
+        ibu_gal_per_lb: true,
+        display_unit: 0,
+        display_scale: -1,
+        deleted: -1,
+        display: 0,
+        folder: 1,
+        tableData: {id: 3},
+        type: 'Flaked',
+      },
+    ]).di.value,
+  ).toEqual(1.0408765454545454);
+});
+
 test('Simple fg', () => {
   expect(
     getTheoricalDF(1.05, [

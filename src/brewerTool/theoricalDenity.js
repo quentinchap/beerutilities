@@ -2,22 +2,20 @@ import math from './mathjs';
 
 export function getTheoricalDenity(rendement, volume, fermentables) {
   let E = 0;
-  fermentables.forEach(f => {
+
+  fermentables.forEach((f) => {
     let weight = 0;
     if (f.weight) {
       weight = parseFloat(f.weight);
     } else if (f && f.amount) {
       let fWeigth = math.unit(
-        f.amount ? parseFloat(f.amount.value) : 0,
-        f.amount ? f.amount.unit : 'kg',
+        f.amount.value ? parseFloat(f.amount.value) : 0,
+        f.amount.unit ? f.amount.unit : 'kg',
       );
       weight = math.number(fWeigth, 'kg');
     }
 
-    E +=
-      (((parseFloat(weight) * parseFloat(f.yield)) / 100) *
-        parseFloat(rendement)) /
-      100;
+    E += (((weight * parseFloat(f.yield)) / 100) * parseFloat(rendement)) / 100;
   });
 
   let DI = 1 + (383 * E) / volume / 1000;
@@ -37,7 +35,7 @@ export function getTheoricalDF(di, yeasts) {
   let DF = 0;
   let ratio = 0;
 
-  yeasts.forEach(y => {
+  yeasts.forEach((y) => {
     let weight = 0;
     if (y.weight) {
       weight = parseFloat(y.weight);

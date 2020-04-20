@@ -41,5 +41,5 @@ test('Complex IBU', () => {
   expect(
     calculateIbu(recipe.ingredients.hops, recipe.fg, recipe.batch_volume.value)
       .ibu,
-  ).toEqual(224.75864966040388);
+  ).toEqual(81.21972918546811);
 });
