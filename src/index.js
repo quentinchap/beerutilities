@@ -10,7 +10,7 @@ import { getColor, ebcToSrm, srmToEbc } from './brewerTool/colorTool';
 export {
   getAlcohoLevel,
   getColor,
-  ebcToSRM,
+  ebcToSrm,
   srmToEbc,
   getSugarToBottling,
   galToOz,
