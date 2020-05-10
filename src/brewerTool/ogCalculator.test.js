@@ -52,7 +52,7 @@ test('Simple OG 2', () => {
 test('Complex og', () => {
   expect(
     getTheoricalDenity(80.0, 20, recipe.ingredients.fermentables).di.value,
-  ).toEqual(1.0373347634);
+  ).toEqual(1.0682475359999999);
 });
 
 test('Bug MBF og', () => {

@@ -98,7 +98,6 @@ export function getColor(malts, volume) {
             weight = malt.amount.value;
         }
 
-        console.log(ebc, weight, volume);
         MCU += (4.23 * ebc * weight) / parseFloat(volume);
     });
 

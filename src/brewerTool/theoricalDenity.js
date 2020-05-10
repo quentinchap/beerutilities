@@ -1,4 +1,4 @@
-import math from './mathjs';
+import { number, Unit } from "mathjs";
 
 export function getTheoricalDenity(rendement, volume, fermentables) {
   let E = 0;
@@ -8,11 +8,11 @@ export function getTheoricalDenity(rendement, volume, fermentables) {
     if (f.weight) {
       weight = parseFloat(f.weight);
     } else if (f && f.amount) {
-      let fWeigth = math.unit(
+      let fWeigth = new Unit(
         f.amount.value ? parseFloat(f.amount.value) : 0,
         f.amount.unit ? f.amount.unit : 'kg',
       );
-      weight = math.number(fWeigth, 'kg');
+      weight = number(fWeigth, 'kg');
     }
 
     E += (((weight * parseFloat(f.yield)) / 100) * parseFloat(rendement)) / 100;
@@ -40,11 +40,11 @@ export function getTheoricalDF(di, yeasts) {
     if (y.weight) {
       weight = parseFloat(y.weight);
     } else if (y && y.amount) {
-      let fWeigth = math.unit(
+      let fWeigth = new Unit(
         y.amount ? parseFloat(y.amount.value) : 0,
         y.amount ? y.amount.unit : 'kg',
       );
-      weight = math.number(fWeigth, 'kg');
+      weight = number(fWeigth, 'kg');
     }
 
     DF += mmDI * (1 - parseFloat(y.attenuation) / 100) * weight;

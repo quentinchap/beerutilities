@@ -1,4 +1,4 @@
-import math from './mathjs';
+import { Unit, number } from "mathjs";
 
 function convertHopParam(hop) {
   let w = 0;
@@ -8,11 +8,10 @@ function convertHopParam(hop) {
   if (hop.weight) {
     w = parseFloat(hop.weight);
   } else if (hop && hop.amount) {
-    let hopWeigth = math.unit(
-      hop.amount ? hop.amount.value : 0,
-      hop.amount ? hop.amount.unit : 'g',
-    );
-    w = math.number(hopWeigth, 'g');
+    let hopWeigth = new Unit(hop.amount ? hop.amount.value : 0,
+      hop.amount ? hop.amount.unit : 'g');
+
+    w = number(hopWeigth, 'oz');
   }
 
   if (hop.alpha) {
@@ -22,45 +21,44 @@ function convertHopParam(hop) {
   }
 
   duration = parseFloat(hop.time);
-  return {w, duration, al};
+  return { w, duration, al };
 }
 
 export function calculateIbu(hops, gravity, volume) {
   let res = 0;
   let usages = [];
-  let vol = parseFloat(volume);
   let grav = parseFloat(gravity);
   let ibu = 0;
   let usage = 0;
-  let cDensity = 0;
+  let cDensity = 1;
 
-  hops.map(h => {
-    let {w, duration, al} = convertHopParam(h);
+  let vol = new Unit(parseFloat(volume), 'l');
+  vol = number(vol, "gal");
+
+
+  hops.forEach(h => {
+    let { w, duration, al } = convertHopParam(h);
     usage = 0;
     ibu = 0;
     if (h.use === 'First Wort') {
       duration = duration * 1.1;
     }
-    if (h.use !== 'Dry Hop' && h.use !== 'Aroma') {
-      usage =
-        1.65 *
-        Math.pow(0.000125, grav - 1) *
-        ((1 - Math.exp(-0.04 * duration)) / 4.15);
+    if (h.use !== 'Dry Hop' && h.use !== 'Aroma' && h.use !== 'Hop Stand') {
+      console.log("Boil Case");
+      const boilTimeFactor = (1 - Math.exp(-0.04 * duration)) / 4.15;
+      const bignessFactor = 1.65 * Math.pow(0.000125, grav - 1);
 
-      cDensity = 1 + (grav - 1.05) / 0.2;
 
-      ibu = (w * usage * al * 1000) / (vol * cDensity);
+      const addedAlpha = (al * w * 7490) / vol;
+      usage = bignessFactor * boilTimeFactor
+
+      res += addedAlpha * usage;
     }
-    res += ibu;
 
-    usages.push({name: h.name, usage});
+    usages.push({ name: h.name, usage });
     return;
   });
 
-  return {ibu: res, usages};
-  /*
-  IBU 111.26
-  Usage 23.07 %
-  L'estimation de l'indice d'amertume totale de la bière est de 111.26 IBU
-  IBUs = [1.65 * 0.000125(densité -1) ] * [ ( 1- exp(-0.04 x durée) ) /4.15 ] * (% d'acides alpha * masse du houblon * 1000) / volume de moût*/
+  return { ibu: res, usages };
+
 }
