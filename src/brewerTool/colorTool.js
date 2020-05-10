@@ -1,5 +1,17 @@
 import { round } from "mathjs";
 
+export function getColorCode(color)
+{
+    if(color && color.unit && color.unit.toUpperCase() === "SRM")
+    {
+        return srmToRGB(color.value);
+    }
+    if(color && color.unit && color.unit.toUpperCase() === "EBC")
+    {
+        return srmToRGB(color.value);
+    }
+}
+
 export function ebcToRGB(ebc) {
     return srmToRGB(ebcToSrm(ebc));
 }

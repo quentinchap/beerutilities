@@ -1,5 +1,5 @@
 
-import { getColor, srmToRGB } from './colorTool';
+import { getColor, ebcToRGB, srmToRGB } from './colorTool';
 
 
 test('Simple case (EBC)', () => {
@@ -90,4 +90,7 @@ test('SRM to color', () => {
   expect(
     srmToRGB(50),
   ).toEqual("#36080A");
+  expect(
+    ebcToRGB(50),
+  ).toEqual("#7B1A00");
 });

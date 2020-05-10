@@ -7,7 +7,7 @@ import { getSugarToBottling } from './conditionningTools/bottling';
 import { calculateIbu } from './brewerTool/ibuCalculator';
 import {
   getColor, ebcToSrm, srmToEbc, srmToRGB,
-  ebcToRGB,
+  ebcToRGB, getColorCode
 } from './brewerTool/colorTool';
 
 export {
@@ -17,6 +17,7 @@ export {
   srmToEbc,
   srmToRGB,
   ebcToRGB,
+  getColorCode,
   getSugarToBottling,
   galToOz,
   galToLiter,
