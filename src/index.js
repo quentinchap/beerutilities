@@ -5,13 +5,18 @@ import { literToOz, literToGal, literToCl } from './conversion/literTo';
 import { ozToGal, ozToLiter } from './conversion/ozTo';
 import { getSugarToBottling } from './conditionningTools/bottling';
 import { calculateIbu } from './brewerTool/ibuCalculator';
-import { getColor, ebcToSrm, srmToEbc } from './brewerTool/colorTool';
+import {
+  getColor, ebcToSrm, srmToEbc, srmToRGB,
+  ebcToRGB,
+} from './brewerTool/colorTool';
 
 export {
   getAlcohoLevel,
   getColor,
   ebcToSrm,
   srmToEbc,
+  srmToRGB,
+  ebcToRGB,
   getSugarToBottling,
   galToOz,
   galToLiter,
