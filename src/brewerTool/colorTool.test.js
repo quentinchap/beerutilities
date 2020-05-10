@@ -1,5 +1,5 @@
 
-import { getColor, ebcToRGB, srmToRGB } from './colorTool';
+import { getColor, ebcToRGB, srmToRGB, getColorCode } from './colorTool';
 
 
 test('Simple case (EBC)', () => {
@@ -93,4 +93,19 @@ test('SRM to color', () => {
   expect(
     ebcToRGB(50),
   ).toEqual("#7B1A00");
+});
+
+test('get color code Bad usage', () => {
+  expect(
+    getColorCode({ value: null, unit: "ebc" }),
+  ).toEqual("#ffffff");
+  expect(
+    getColorCode({ value: null, unit: "srm" }),
+  ).toEqual("#ffffff");
+  expect(
+    getColorCode({ value: null, unit: "esdsdbc" }),
+  ).toEqual("#ffffff");
+  expect(
+    getColorCode({ value: 3, unit: "esdsdbc" }),
+  ).toEqual("#ffffff");
 });
