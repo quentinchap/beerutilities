@@ -75,3 +75,12 @@ test('Complex IBU', () => {
       .ibu),
   ).toEqual(39);
 });
+
+test('Full cascade IBU', () => {
+  expect(
+    round(calculateIbu([
+      { "id": 4, "name": "test", "amount": { "value": 5, "unit": "g" }, "alpha": "6.1", "time": "60", "form": "Pellet", "use": "Boil" },
+    ], 1.05, 20)
+      .ibu),
+  ).toEqual(4);
+});
