@@ -1,63 +1,27 @@
 {
   "name": "beerutilities",
-  "version": "0.0.33",
+  "version": "0.1.00",
   "description": "Tools to convert, calculate, ...",
-  "main": "build/index.js",
-  "scripts": {
-    "build": "webpack --config webpack.config.js",
-    "lint": "eslint . --max-warnings 0",
-    "test": "jest"
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "dependencies": {
+    "mathjs": "^11.5.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/quentinchap/beerutilities.git"
   },
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "lint": "eslint . --max-warnings 0",
+    "test": "jest"
+  },
   "author": "Quentin CHAPELLE",
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.1.2",
-    "@babel/core": "^7.1.2",
-    "@babel/plugin-syntax-class-properties": "^7.0.0",
-    "@babel/plugin-syntax-object-rest-spread": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-eslint": "^10.0.1",
-    "babel-jest": "^23.6.0",
-    "babel-loader": "^8.0.4",
-    "eslint": "^4.19.1",
-    "eslint-plugin-jest": "^21.15.0",
-    "jest": "^22.4.4",
-    "jest-css-modules": "^1.1.0",
-    "jest-localstorage-mock": "^2.3.0",
-    "regenerator-runtime": "^0.12.1",
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.1"
-  },
-  "dependencies": {
-    "mathjs": "^7.0.0"
-  },
-  "prettier": {
-    "bracketSpacing": false,
-    "singleQuote": true,
-    "trailingComma": "all"
-  },
-  "jest": {
-    "verbose": true,
-    "testURL": "http://localhost/",
-    "transform": {
-      "^.+\\.js$": "babel-jest",
-      "^.+\\.(css|scss|less)$": "jest-css-modules"
-    },
-    "globals": {
-      "NODE_ENV": "test"
-    },
-    "moduleFileExtensions": [
-      "js",
-      "jsx"
-    ],
-    "moduleDirectories": [
-      "node_modules",
-      "src/"
-    ]
+    "@types/mathjs": "^9.4.2"
   }
 }

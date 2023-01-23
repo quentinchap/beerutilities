@@ -1,6 +1,6 @@
-import { Unit, number } from "mathjs";
+import math from "mathjs";
 
-function convertHopParam(hop) {
+function convertHopParam(hop:any) {
   let w = 0;
   let duration = 0;
   let al = 0;
@@ -8,10 +8,10 @@ function convertHopParam(hop) {
   if (hop.weight) {
     w = parseFloat(hop.weight);
   } else if (hop && hop.amount) {
-    let hopWeigth = new Unit(hop.amount ? hop.amount.value : 0,
+    let hopWeigth = math.unit(hop.amount ? hop.amount.value : 0,
       hop.amount ? hop.amount.unit : 'g');
 
-    w = number(hopWeigth, 'oz');
+    w = hopWeigth.toNumber('oz');
   }
 
   if (hop.alpha) {
@@ -24,19 +24,19 @@ function convertHopParam(hop) {
   return { w, duration, al };
 }
 
-export function calculateIbu(hops, gravity, volume) {
+export function calculateIbu(hops:any, gravity:any, volume:any) {
   let res = 0;
-  let usages = [];
+  let usages: any[] = [];
   let grav = parseFloat(gravity);
   let ibu = 0;
   let usage = 0;
   let cDensity = 1;
 
-  let vol = new Unit(parseFloat(volume), 'l');
-  vol = number(vol, "gal");
+  let vol = math.unit(parseFloat(volume), 'l');
+  let galVol = vol.toNumber("gal");
 
 
-  hops.forEach(h => {
+  hops.forEach( (h:any) => {
     let { w, duration, al } = convertHopParam(h);
     usage = 0;
     ibu = 0;
@@ -49,7 +49,7 @@ export function calculateIbu(hops, gravity, volume) {
       const bignessFactor = 1.65 * Math.pow(0.000125, grav - 1);
 
 
-      const addedAlpha = (al * w * 7490) / vol;
+      const addedAlpha = (al * w * 7490) / galVol;
       usage = bignessFactor * boilTimeFactor
 
       res += addedAlpha * usage;
